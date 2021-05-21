@@ -11,6 +11,22 @@
     </div>
 </div>
 
+<ul *ngIf="mostrarSugerencias"
+    class="list-group">
+    <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action">
+        <a class="nav-link"
+            [routerLink]="['/pais', pais.alpha2Code]">
+            {{ pais.name }}
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="nav-link"
+            (click)="buscar( termino )">
+            buscar "{{ termino }}"
+        </a>
+    </li>
+</ul>
+
 <hr>
 
 <div *ngIf="hayError" 
@@ -18,7 +34,7 @@
     No se encontró nada con el término {{ termino }}
 </div>
 
-<div *ngIf="resultadoPaises.length > 0" class="row">
+<div *ngIf="resultadoPaises.length > 0" class="row animate__animated animate__animated animate__fadeInDown">
     <div class="col">
         <app-pais-tabla 
             [paises]="resultadoPaises" 
