@@ -24,9 +24,13 @@ export class PaisService {
     //   );
   }
 
-  buscarPorcapital( termino: string ): Observable<Pais[]>{
+  buscarPorCapital( termino: string ): Observable<Pais[]>{
     const url = `${ this.apiURL }/capital/${ termino }`;
     return this.http.get<Pais[]>( url );
   }
-
+  
+  buscarPorCodigo( id: string ): Observable<Pais>{
+    const url = `${ this.apiURL }/alpha/${ id }`;
+    return this.http.get<Pais>( url );
+  }
 }

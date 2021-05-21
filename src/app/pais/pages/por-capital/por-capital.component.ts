@@ -23,7 +23,7 @@ export class PorCapitalComponent{
     this.hayError = false;
     this.termino = termino;
 
-    this.paisService.buscarPorcapital(this.termino)
+    this.paisService.buscarPorCapital(this.termino)
       .subscribe( paises => {
         console.log('Paises por capital: ', paises);
         this.resultadoPaises = paises; 
